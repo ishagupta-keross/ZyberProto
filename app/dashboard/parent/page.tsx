@@ -24,6 +24,7 @@ export default function ParentDashboard() {
   const [selectedChild, setSelectedChild] = useState<any>(null);
   const [selectedAlert, setSelectedAlert] = useState<any>(null);
   const [showAlertDetail, setShowAlertDetail] = useState(false);
+  const [showGeofencing, setShowGeofencing] = useState(false);
 
   useEffect(() => {
     const currentUser = getUser();
@@ -37,6 +38,8 @@ export default function ParentDashboard() {
     if (children.length > 0) {
       setSelectedChild(children[0]);
     }
+
+    setTimeout(() => setShowGeofencing(true), 1000);
   }, [router]);
 
   if (!user || !selectedChild) return null;
@@ -520,6 +523,29 @@ export default function ParentDashboard() {
           </TabsContent>
         </Tabs>
       </div>
+
+      <Dialog open={showGeofencing} onOpenChange={setShowGeofencing}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <MapPin className="w-5 h-5" />
+              Setup Geofencing for {selectedChild.name}
+            </DialogTitle>
+            <DialogDescription>
+              Set up safe zones and receive alerts when your child enters or leaves designated areas.
+            </DialogDescription>
+          </DialogHeader>
+          <GeofencingMap childName={selectedChild.name} />
+          <div className="flex justify-end">
+            <Button onClick={() => {
+              setShowGeofencing(false);
+              toast.success('Geofencing setup complete!');
+            }}>
+              Done
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Dialog open={showAlertDetail} onOpenChange={setShowAlertDetail}>
         <DialogContent className="max-w-2xl">

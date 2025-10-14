@@ -46,7 +46,7 @@ export default function PricingPage() {
         'Premium support',
       ],
       popular: true,
-      color: 'from-purple-500 to-pink-500',
+      color: 'from-cyan-500 to-blue-600',
     },
     {
       name: 'Premium',
@@ -66,14 +66,14 @@ export default function PricingPage() {
         'Dedicated account manager',
       ],
       popular: false,
-      color: 'from-orange-500 to-red-500',
+      color: 'from-blue-600 to-blue-800',
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-pink-50 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900">
       <div className="absolute top-4 left-4">
-        <Button variant="ghost" asChild>
+        <Button variant="ghost" className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400" asChild>
           <Link href="/">
             ← Back to Home
           </Link>
@@ -86,8 +86,8 @@ export default function PricingPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <Badge className="mb-4 gradient-blue-purple text-white">Pricing Plans</Badge>
-          <h1 className="text-5xl font-bold mb-4 gradient-blue-purple bg-clip-text text-transparent neon-text">
+          <Badge className="mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white">Pricing Plans</Badge>
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
             Choose Your Protection Plan
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -99,14 +99,14 @@ export default function PricingPage() {
           <Button
             variant={billingCycle === 'monthly' ? 'default' : 'outline'}
             onClick={() => setBillingCycle('monthly')}
-            className={billingCycle === 'monthly' ? 'gradient-blue-purple text-white' : ''}
+            className={billingCycle === 'monthly' ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : ''}
           >
             Monthly
           </Button>
           <Button
             variant={billingCycle === 'annual' ? 'default' : 'outline'}
             onClick={() => setBillingCycle('annual')}
-            className={billingCycle === 'annual' ? 'gradient-blue-purple text-white' : ''}
+            className={billingCycle === 'annual' ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : ''}
           >
             Annual
             <Badge variant="secondary" className="ml-2 bg-green-100 text-green-800">Save 20%</Badge>
@@ -125,12 +125,12 @@ export default function PricingPage() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <Badge className="gradient-blue-purple text-white text-sm px-4 py-1">
+                  <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm px-4 py-1">
                     Most Popular
                   </Badge>
                 </div>
               )}
-              <Card className={`h-full ${plan.popular ? 'border-primary border-2 shadow-xl neon-glow' : ''}`}>
+              <Card className={`h-full ${plan.popular ? 'border-cyan-500 border-2 shadow-xl shadow-cyan-500/30' : ''}`}>
                 <CardHeader>
                   <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${plan.color} flex items-center justify-center mb-4`}>
                     <Shield className="w-8 h-8 text-white" />
@@ -168,7 +168,7 @@ export default function PricingPage() {
                     ))}
                   </ul>
                   <Button
-                    className={`w-full ${plan.popular ? 'gradient-blue-purple text-white' : ''}`}
+                    className={`w-full ${plan.popular ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' : ''}`}
                     size="lg"
                     asChild
                   >
