@@ -142,7 +142,7 @@ export default function LandingPage() {
               <Link href="/login">Login</Link>
             </Button>
             <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all" asChild>
-              <Link href="/login">Get Started</Link>
+              <Link href="/login">Register</Link>
             </Button>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
                 <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/70 px-8 transition-all" asChild>
-                  <Link href="/login">Start Free Trial</Link>
+                  <Link href="/login">Register Now</Link>
                 </Button>
                 <Button size="lg" className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
                   Watch Demo
