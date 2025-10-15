@@ -142,7 +142,9 @@ export function AvatarCreator({ open, onClose, onAvatarSelect, currentAvatar }: 
               )}
 
               <div className="flex gap-3 justify-end">
-                <Button variant="outline" onClick={onClose}>
+                <Button 
+                className='"hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400"'
+                variant="outline" onClick={onClose}>
                   Cancel
                 </Button>
                 <Button
