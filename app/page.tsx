@@ -166,7 +166,10 @@ export default function LandingPage() {
                 className="object-contain"
               />
             </div>
-            <span className="text-xl font-bold text-white">ZyberHero</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-white">ZyberHero</span>
+              <span className="text-xs text-gray-400">Innocence Deserves Protection</span>
+            </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link
@@ -448,7 +451,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              💙 About Us
+              About Us
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               About ZyberHero
@@ -459,7 +462,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
             {[
               {
                 title: "Our Mission",
@@ -474,11 +477,6 @@ We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engine
 
 We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
                 icon: Star,
-              },
-              {
-                title: "Our Values",
-                desc: "Privacy, transparency, and trust. We protect children while respecting their dignity, empower parents with knowledge, and maintain the highest ethical standards.",
-                icon: Award,
               },
             ].map((item, index) => (
               <motion.div

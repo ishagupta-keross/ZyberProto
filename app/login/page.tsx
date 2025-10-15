@@ -108,8 +108,7 @@ export default function LoginPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2"
-          >
-            <Shield className="w-5 h-5" />
+          >          
             Innocence Deserves Protection
           </motion.p>
         </div>
