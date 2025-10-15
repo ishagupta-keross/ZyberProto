@@ -400,7 +400,7 @@ export default function InvestigatorDashboard() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Case Management</CardTitle>
-                  <Button className="gradient-blue-purple text-white">
+                  <Button className="gradient-cyan-blue text-white">
                     <FileText className="w-4 h-4 mr-2" />
                     Create New Case
                   </Button>
@@ -456,6 +456,10 @@ export default function InvestigatorDashboard() {
                     <div className="p-3 bg-muted rounded">
                       <p className="text-xs text-muted-foreground mb-1">IP Address</p>
                       <p>192.168.1.105</p>
+                    </div>
+                    <div className="p-3 bg-muted rounded">
+                      <p className="text-xs text-muted-foreground mb-1">MAC Address</p>
+                      <p>00:1B:44:11:3A:B7</p>
                     </div>
                     <div className="p-3 bg-muted rounded">
                       <p className="text-xs text-muted-foreground mb-1">SHA-256 Hash</p>
@@ -528,6 +532,54 @@ export default function InvestigatorDashboard() {
                       <div className="p-3 bg-white dark:bg-gray-900 rounded">
                         <p className="text-xs text-muted-foreground mb-1">Platform</p>
                         <p className="font-semibold">Instagram DM</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="lg" variant="destructive" className="flex-1">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Contact Parent
+                      </Button>
+                      <Button size="lg" variant="destructive" className="flex-1">
+                        <Send className="w-4 h-4 mr-2" />
+                        Alert Law Enforcement
+                      </Button>
+                      <Button size="lg" variant="outline">
+                        <MapPin className="w-4 h-4 mr-2" />
+                        Track Location
+                      </Button>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="p-6 border-2 border-red-500 rounded-lg bg-red-50 dark:bg-red-950/20"
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-red-700 dark:text-red-400">SOS-2024-002</h4>
+                        <p className="text-sm text-muted-foreground">Child: Lucas Wilson (Age 12)</p>
+                      </div>
+                      <Badge variant="destructive" className="text-lg px-4 py-2 animate-pulse">
+                        ACTIVE
+                      </Badge>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div className="p-3 bg-white dark:bg-gray-900 rounded">
+                        <p className="text-xs text-muted-foreground mb-1">Triggered</p>
+                        <p className="font-semibold">12 minutes ago</p>
+                      </div>
+                      <div className="p-3 bg-white dark:bg-gray-900 rounded">
+                        <p className="text-xs text-muted-foreground mb-1">Location</p>
+                        <p className="font-semibold">Park Ave & 3rd St</p>
+                      </div>
+                      <div className="p-3 bg-white dark:bg-gray-900 rounded">
+                        <p className="text-xs text-muted-foreground mb-1">Device</p>
+                        <p className="font-semibold">Samsung Galaxy S21</p>
+                      </div>
+                      <div className="p-3 bg-white dark:bg-gray-900 rounded">
+                        <p className="text-xs text-muted-foreground mb-1">Platform</p>
+                        <p className="font-semibold">Discord Chat</p>
                       </div>
                     </div>
                     <div className="flex gap-2">

@@ -173,6 +173,12 @@ export default function LandingPage() {
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link
+              href="#about"
+              className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+            >
+              About Us
+            </Link>
+            <Link
               href="#features"
               className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
             >
@@ -185,10 +191,10 @@ export default function LandingPage() {
               How It Works
             </Link>
             <Link
-              href="#about"
+              href="#founding-team"
               className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
             >
-              About Us
+              Founding Team
             </Link>
             <Link
               href="#pricing"
@@ -197,10 +203,10 @@ export default function LandingPage() {
               Pricing
             </Link>
             <Link
-              href="#testimonials"
+              href="#contact"
               className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
             >
-              Testimonials
+              Contact
             </Link>
           </nav>
           <div className="flex items-center gap-2">
@@ -215,7 +221,7 @@ export default function LandingPage() {
               className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
               asChild
             >
-              <Link href="/login">Register</Link>
+              <Link href="/payment">Register</Link>
             </Button>
           </div>
         </div>
@@ -261,14 +267,9 @@ export default function LandingPage() {
                   <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                     <Shield className="w-4 h-4 text-green-400" />
                   </div>
-                  <span className="text-sm font-medium">ISO Certified</span>
+                  <span className="text-sm font-medium">ISO 27001-2022 Certified</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-                    <Lock className="w-4 h-4 text-blue-400" />
-                  </div>
-                 
-                </div>
+                
                 <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
                     <Zap className="w-4 h-4 text-cyan-400" />
@@ -330,11 +331,64 @@ export default function LandingPage() {
         </div>
       </section>
 
+        <section id="about" className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
+              About Us
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              About ZyberHero
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Protecting innocence in the digital age through advanced AI
+              technology and compassionate monitoring
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+            {[
+              {
+                title: "Our Mission",
+                desc: "The mission is to empower businesses to be transformed through the orchestration of their data, facilitated by AI and agentic AI, to connect systems, enable people, and align processes, ensuring value generation is maximized through improved operational efficiency and enhanced revenue growth.",
+                icon: Shield,
+              },
+              {
+                title: "Our Vision",
+                desc: `We aim to be recognized as the preferred technology enabler, empowering businesses across industries to unlock the full potential of data orchestration.
+
+We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engineering, Construction, Travel, Government, and other sectors to deliver advanced AI-driven solutions. Our solutions are dynamic, decentralized, data-focused, automated, and self-learning, designed for seamless application internally or in B2B environments, whether on cloud, on-premise, or in real-time.
+
+We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
+                icon: Star,
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30">
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white">
+                  {item.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="features" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              ✨ Features
+             Features
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Comprehensive Digital Protection
@@ -380,7 +434,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              🔍 How It Works
+              How It Works
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               How Our Monitoring Works
@@ -445,58 +499,42 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="about" className="py-20 bg-gray-900">
+    
+
+      <section className="py-20 bg-gray-950">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              About Us
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              About ZyberHero
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Protecting innocence in the digital age through advanced AI
-              technology and compassionate monitoring
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-            {[
-              {
-                title: "Our Mission",
-                desc: "The mission is to empower businesses to be transformed through the orchestration of their data, facilitated by AI and agentic AI, to connect systems, enable people, and align processes, ensuring value generation is maximized through improved operational efficiency and enhanced revenue growth.",
-                icon: Shield,
-              },
-              {
-                title: "Our Vision",
-                desc: `We aim to be recognized as the preferred technology enabler, empowering businesses across industries to unlock the full potential of data orchestration.
-
-We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engineering, Construction, Travel, Government, and other sectors to deliver advanced AI-driven solutions. Our solutions are dynamic, decentralized, data-focused, automated, and self-learning, designed for seamless application internally or in B2B environments, whether on cloud, on-premise, or in real-time.
-
-We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
-                icon: Star,
-              },
-            ].map((item, index) => (
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
+                className="bg-gray-900 backdrop-blur rounded-2xl p-8 shadow-lg border-2 border-cyan-500/20 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30">
-                  <item.icon className="w-8 h-8 text-white" />
+                <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
+                  {stat.value}
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">{item.desc}</p>
+                <div className="text-gray-400 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="max-w-6xl mx-auto bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
+       <section id="founding-team" className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
+              Team
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Founding Members
+            </h2>
+          </div>
+
+            <div  className="max-w-6xl mx-auto bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-shrink-0">
                 <Image
@@ -532,33 +570,11 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
-      <section className="py-20 bg-gray-950">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-900 backdrop-blur rounded-2xl p-8 shadow-lg border-2 border-cyan-500/20 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
-              >
-                <div className="text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-400 font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="testimonials" className="py-20 bg-black text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              💬 Testimonials
+              Testimonials
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
               Trusted by Families Worldwide
@@ -625,7 +641,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              💎 Pricing
+              Pricing
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 text-white">
               Choose Your Protection Plan
@@ -757,7 +773,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-gray-300 py-12">
+      <footer id="contact" className="bg-gray-900 text-gray-300 py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
@@ -839,8 +855,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
             <div>
               <h3 className="text-white font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-sm">
-                <li>support@zyberhero.com</li>
-                <li>(555) HERO-HELP</li>
+                <li>info@keross.com</li>
                 <li>24/7 Support Available</li>
               </ul>
             </div>

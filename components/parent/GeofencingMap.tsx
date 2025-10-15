@@ -92,7 +92,7 @@ export function GeofencingMap({ childName }: GeofencingMapProps) {
               <CardTitle className="flex items-center gap-2">
                 Safe Zones
               </CardTitle>
-              <Button size="sm" onClick={addZone} className="gradient-blue-purple text-white">
+              <Button size="sm" onClick={addZone} className="gradient-cyan-blue text-white">
                 <Plus className="w-4 h-4 mr-2" />
                 Add Zone
               </Button>

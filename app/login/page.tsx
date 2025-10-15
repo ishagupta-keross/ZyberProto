@@ -175,7 +175,7 @@ export default function LoginPage() {
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
-                    className="flex-1 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 hover:shadow-lg hover:shadow-blue-500/50 dark:hover:bg-blue-950 dark:hover:text-blue-400"
+                    className="flex-1 border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
                     onClick={() => {
                       setSelectedRole(null);
                       setSelectedUserId('');
@@ -189,14 +189,6 @@ export default function LoginPage() {
                     onClick={() => handleLogin(false)}
                   >
                     Sign In
-                  </Button>
-                  <Button
-                    className="flex-1 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 hover:shadow-lg hover:shadow-blue-500/50 dark:hover:bg-blue-950 dark:hover:text-blue-400"
-                    variant="outline"
-                    disabled={!selectedUserId}
-                    onClick={() => handleLogin(true)}
-                  >
-                    Register & Pay
                   </Button>
                 </div>
               </CardContent>
