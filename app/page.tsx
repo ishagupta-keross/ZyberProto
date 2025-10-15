@@ -261,15 +261,13 @@ export default function LandingPage() {
                   <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                     <Shield className="w-4 h-4 text-green-400" />
                   </div>
-                  <span className="text-sm font-medium">COPPA Certified</span>
+                  <span className="text-sm font-medium">ISO Certified</span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
                     <Lock className="w-4 h-4 text-blue-400" />
                   </div>
-                  <span className="text-sm font-medium">
-                    256-bit Encryption
-                  </span>
+                 
                 </div>
                 <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
