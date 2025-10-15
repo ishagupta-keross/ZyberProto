@@ -25,9 +25,9 @@ export default function PaymentPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-pink-50 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900 flex items-center justify-center p-4">
       <div className="absolute top-4 left-4">
-        <Button variant="ghost" asChild>
+        <Button variant="ghost" className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400" asChild>
           <Link href="/pricing">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Pricing
@@ -41,7 +41,7 @@ export default function PaymentPage() {
         className="w-full max-w-4xl"
       >
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2 gradient-blue-purple bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
             {step === 'trial' ? 'Start Your Free Trial' : 'Complete Your Subscription'}
           </h1>
           <p className="text-muted-foreground">
@@ -87,7 +87,7 @@ export default function PaymentPage() {
                         I agree to the Terms of Service and Privacy Policy
                       </Label>
                     </div>
-                    <Button type="submit" className="w-full gradient-blue-purple text-white" size="lg">
+                    <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white" size="lg">
                       Start 14-Day Free Trial
                     </Button>
                     <p className="text-xs text-center text-muted-foreground">
@@ -143,7 +143,7 @@ export default function PaymentPage() {
                       <Lock className="w-5 h-5 text-green-500" />
                       <span className="text-sm">Secured by 256-bit SSL encryption</span>
                     </div>
-                    <Button type="submit" className="w-full gradient-blue-purple text-white" size="lg">
+                    <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white" size="lg">
                       Complete Subscription
                     </Button>
                   </form>
@@ -160,7 +160,7 @@ export default function PaymentPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="font-semibold">Family Plan</span>
-                  <Badge className="gradient-blue-purple text-white">Popular</Badge>
+                  <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">Popular</Badge>
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -195,9 +195,9 @@ export default function PaymentPage() {
               </CardContent>
             </Card>
 
-            <Card className="gradient-blue-purple text-white">
+            <Card className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-2xl border-0">
               <CardContent className="p-6">
-                <h3 className="font-bold mb-4">What's Included:</h3>
+                <h3 className="font-bold mb-4 text-white">What's Included:</h3>
                 <ul className="space-y-2">
                   {[
                     'Content filtering & monitoring',
@@ -209,7 +209,7 @@ export default function PaymentPage() {
                   ].map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <Check className="w-4 h-4" />
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm text-white">{feature}</span>
                     </li>
                   ))}
                 </ul>

@@ -50,8 +50,10 @@ export default function LoginPage() {
 
     const user = signIn(selectedRole, selectedUserId);
     if (user) {
-      if (isNewUser || selectedRole === 'parent') {
+      if (isNewUser) {
         router.push('/payment');
+      } else if (selectedRole === 'parent') {
+        router.push('/dashboard/parent');
       } else {
         router.push(getDashboardPath(selectedRole));
       }
@@ -61,7 +63,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
       <div className="absolute top-4 left-4">
-        <Button variant="ghost" asChild>
+        <Button variant="ghost" className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400" asChild>
           <Link href="/">
             <Home className="w-4 h-4 mr-2" />
             Back to Home
@@ -81,9 +83,9 @@ export default function LoginPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex justify-center mb-6"
           >
-            <div className="relative w-48 h-48">
+            <div className="relative w-48 h-48 rounded-2xl overflow-hidden">
               <Image
-                src="/logo.png"
+                src="/zyber-logo.png"
                 alt="ZyberHero Logo"
                 fill
                 className="object-contain"
@@ -106,8 +108,7 @@ export default function LoginPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 flex items-center justify-center gap-2"
-          >
-            <Shield className="w-5 h-5" />
+          >          
             Innocence Deserves Protection
           </motion.p>
         </div>
@@ -124,7 +125,7 @@ export default function LoginPage() {
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                 >
                   <Card
-                    className={`cursor-pointer transition-all hover:scale-105 hover:shadow-xl ${role.bgColor} border-2 border-transparent hover:border-primary`}
+                    className={`cursor-pointer transition-all hover:scale-105 hover:shadow-xl ${role.bgColor} border-2 border-transparent hover:border-cyan-500`}
                     onClick={() => setSelectedRole(role.id)}
                   >
                     <CardHeader className="text-center">
@@ -160,7 +161,7 @@ export default function LoginPage() {
                     <Button
                       key={user.id}
                       variant={selectedUserId === user.id ? 'default' : 'outline'}
-                      className="w-full justify-start"
+                      className={`w-full justify-start ${selectedUserId !== user.id ? 'hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-950' : ''}`}
                       onClick={() => setSelectedUserId(user.id)}
                     >
                       <span className="mr-2 text-2xl">
@@ -174,7 +175,7 @@ export default function LoginPage() {
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
-                    className="flex-1"
+                    className="flex-1 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 hover:shadow-lg hover:shadow-blue-500/50 dark:hover:bg-blue-950 dark:hover:text-blue-400"
                     onClick={() => {
                       setSelectedRole(null);
                       setSelectedUserId('');
@@ -183,14 +184,14 @@ export default function LoginPage() {
                     Back
                   </Button>
                   <Button
-                    className="flex-1"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 hover:shadow-lg hover:shadow-cyan-500/50"
                     disabled={!selectedUserId}
                     onClick={() => handleLogin(false)}
                   >
                     Sign In
                   </Button>
                   <Button
-                    className="flex-1"
+                    className="flex-1 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-600 hover:shadow-lg hover:shadow-blue-500/50 dark:hover:bg-blue-950 dark:hover:text-blue-400"
                     variant="outline"
                     disabled={!selectedUserId}
                     onClick={() => handleLogin(true)}
