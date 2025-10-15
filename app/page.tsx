@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -15,6 +16,8 @@ import {
   Users,
   Award,
   ArrowRight,
+  Trophy,Target, Gift 
+  
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -168,7 +171,9 @@ export default function LandingPage() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-white">ZyberHero</span>
-              <span className="text-xs text-gray-400">Innocence Deserves Protection</span>
+              <span className="text-xs text-gray-400">
+                Innocence Deserves Protection
+              </span>
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
@@ -194,7 +199,7 @@ export default function LandingPage() {
               href="#founding-team"
               className="text-sm text-gray-300 hover:text-cyan-400 transition-colors"
             >
-              Founding Team
+              Team
             </Link>
             <Link
               href="#pricing"
@@ -253,23 +258,25 @@ export default function LandingPage() {
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/70 px-8 transition-all"
                   asChild
                 >
-                  <Link href="/login">Register Now</Link>
+                  <Link href="/payment">Register Now</Link>
                 </Button>
-                <Button
+                {/* <Button
                   size="lg"
                   className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
                 >
                   Watch Demo
-                </Button>
+                </Button> */}
               </div>
               <div className="flex items-center gap-8 flex-wrap">
                 <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center border border-green-500/30">
                     <Shield className="w-4 h-4 text-green-400" />
                   </div>
-                  <span className="text-sm font-medium">ISO 27001-2022 Certified</span>
+                  <span className="text-sm font-medium">
+                    ISO 27001-2022 Certified
+                  </span>
                 </div>
-                
+
                 <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30">
                     <Zap className="w-4 h-4 text-cyan-400" />
@@ -331,14 +338,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-        <section id="about" className="py-20 bg-gray-900">
+      <section id="about" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
               About Us
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              About ZyberHero
+              ZyberHero
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Protecting innocence in the digital age through advanced AI
@@ -346,22 +353,24 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+          <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto mb-12">
             {[
               {
                 title: "Our Mission",
-                desc: "The mission is to empower businesses to be transformed through the orchestration of their data, facilitated by AI and agentic AI, to connect systems, enable people, and align processes, ensuring value generation is maximized through improved operational efficiency and enhanced revenue growth.",
+                desc: `At ZyberHero, we believe every child deserves to explore the digital world safely. Our mission is to provide parents with the most advanced, yet easy-to-use tools to protect their children from online threats while fostering healthy digital habits.
+
+We combine cutting-edge AI technology with child psychology expertise to create solutions that protect without invading privacy, educate without overwhelming, and empower families to thrive in our connected world.`,
                 icon: Shield,
               },
-              {
-                title: "Our Vision",
-                desc: `We aim to be recognized as the preferred technology enabler, empowering businesses across industries to unlock the full potential of data orchestration.
+//               {
+//                 title: "Our Vision",
+//                 desc: `We aim to be recognized as the preferred technology enabler, empowering businesses across industries to unlock the full potential of data orchestration.
 
-We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engineering, Construction, Travel, Government, and other sectors to deliver advanced AI-driven solutions. Our solutions are dynamic, decentralized, data-focused, automated, and self-learning, designed for seamless application internally or in B2B environments, whether on cloud, on-premise, or in real-time.
+// We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engineering, Construction, Travel, Government, and other sectors to deliver advanced AI-driven solutions. Our solutions are dynamic, decentralized, data-focused, automated, and self-learning, designed for seamless application internally or in B2B environments, whether on cloud, on-premise, or in real-time.
 
-We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
-                icon: Star,
-              },
+// We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
+//                 icon: Star,
+//               },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -369,7 +378,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
+                className="flex flex-col items-center bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
               >
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30">
                   <item.icon className="w-8 h-8 text-white" />
@@ -384,11 +393,369 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
+      <section className="py-20 bg-gray-950">
+  {/* Outer container */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Header section */}
+    <div className="text-center space-y-4 mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-white">Our Core Values</h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        The principles that guide everything we do at ZyberHero
+      </p>
+    </div>
+
+    {/* Values grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      {/* === Card 1: Child Safety First === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-cyan-500/20 transition-all duration-300">
+        {/* Card header */}
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          {/* Icon container */}
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-shield h-8 w-8 text-cyan-400"
+            >
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Child Safety First</h3>
+        </div>
+        {/* Card content */}
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            Every decision we make prioritizes the safety and wellbeing of children above all else.
+          </p>
+        </div>
+      </div>
+
+      {/* === Card 2: Privacy & Trust === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-red-500/20 transition-all duration-300">
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-heart h-8 w-8 text-red-400"
+            >
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Privacy &amp; Trust</h3>
+        </div>
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            We maintain the highest standards of privacy while providing transparent protection.
+          </p>
+        </div>
+      </div>
+
+      {/* === Card 3: Family Empowerment === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-green-500/20 transition-all duration-300">
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-users h-8 w-8 text-green-400"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Family Empowerment</h3>
+        </div>
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            We empower families with tools and knowledge to navigate the digital world safely.
+          </p>
+        </div>
+      </div>
+
+      {/* === Card 4: Innovation === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-purple-500/20 transition-all duration-300">
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-lightbulb h-8 w-8 text-purple-400"
+            >
+              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Innovation</h3>
+        </div>
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            We continuously innovate to stay ahead of emerging digital threats and challenges.
+          </p>
+        </div>
+      </div>
+
+      {/* === Card 5: Precision === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-orange-500/20 transition-all duration-300">
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-target h-8 w-8 text-orange-400"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Precision</h3>
+        </div>
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            Our AI delivers precise threat detection with minimal false positives.
+          </p>
+        </div>
+      </div>
+
+      {/* === Card 6: Excellence === */}
+      <div className="rounded-lg bg-gray-900 border border-gray-800 shadow-lg hover:shadow-indigo-500/20 transition-all duration-300">
+        <div className="flex flex-col space-y-1.5 p-6 text-center pb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/10 mb-4 mx-auto">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24" height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-award h-8 w-8 text-indigo-400"
+            >
+              <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+              <circle cx="12" cy="8" r="6" />
+            </svg>
+          </div>
+          <h3 className="tracking-tight text-xl font-bold text-white">Excellence</h3>
+        </div>
+        <div className="p-6 pt-0">
+          <p className="text-sm text-gray-400 text-center leading-relaxed">
+            We strive for excellence in everything we do, from product quality to customer support.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section className="py-20 bg-gray-950">
+  {/* Outer container */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Header section */}
+    <div className="text-center space-y-4 mb-16">
+      <h2 className="text-3xl lg:text-4xl font-bold text-white">Our Roadmap</h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        From research and development to becoming a global leader in child digital safety
+      </p>
+    </div>
+
+    {/* Timeline container */}
+    <div className="relative">
+      {/* Vertical line */}
+      <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-700"></div>
+
+      {/* Timeline events */}
+      <div className="space-y-12">
+
+        {/* === Event 1: R&D Phase Initiated === */}
+        <div className="relative flex items-center justify-start">
+          <div className="w-5/12 pr-8 text-right">
+            <div className="rounded-lg bg-green-900 border border-green-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">R&D Phase Initiated</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-green-700 text-green-100">2024</span>
+                    <span className="text-green-400">✓</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Started research and development of AI-powered child protection technology with a team of experts.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Timeline dot */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-green-400"></div>
+        </div>
+
+        {/* === Event 2: Investor Partnership === */}
+        <div className="relative flex items-center justify-end">
+          <div className="w-5/12 pl-8 text-left">
+            <div className="rounded-lg bg-blue-900 border border-blue-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">Investor Partnership</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-700 text-blue-100">Nov 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Secure strategic investor partnership to fund development and accelerate product launch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-blue-400"></div>
+        </div>
+
+        {/* === Event 3: Company Establishment === */}
+        <div className="relative flex items-center justify-start">
+          <div className="w-5/12 pr-8 text-right">
+            <div className="rounded-lg bg-blue-900 border border-blue-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">Company Establishment</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-700 text-blue-100">Dec 2025</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Official company incorporation and team expansion with dedicated development resources.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-blue-400"></div>
+        </div>
+
+        {/* === Event 4: B2C Beta Launch === */}
+        <div className="relative flex items-center justify-end">
+          <div className="w-5/12 pl-8 text-left">
+            <div className="rounded-lg bg-blue-900 border border-blue-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">B2C Beta Launch</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-700 text-blue-100">Jan 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Release beta version of ZyberHero for families and individual consumers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-blue-400"></div>
+        </div>
+
+        {/* === Event 5: B2B Platform Launch === */}
+        <div className="relative flex items-center justify-start">
+          <div className="w-5/12 pr-8 text-right">
+            <div className="rounded-lg bg-blue-900 border border-blue-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">B2B Platform Launch</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-700 text-blue-100">Feb 2026</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Launch enterprise solution for schools, organizations, and educational institutions.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-blue-400"></div>
+        </div>
+
+        {/* === Event 6: Global Expansion === */}
+        <div className="relative flex items-center justify-end">
+          <div className="w-5/12 pl-8 text-left">
+            <div className="rounded-lg bg-gray-900 border border-gray-700 text-white shadow-lg">
+              <div className="flex flex-col space-y-1.5 p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="tracking-tight text-lg font-bold">Global Expansion</h3>
+                  <div className="flex items-center space-x-2">
+                    <span className="px-3 py-1 rounded-full text-sm font-medium bg-gray-700 text-gray-100">2026+</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 pt-0">
+                <p className="text-sm text-gray-300 leading-relaxed">
+                  Scale internationally with partnerships in education, law enforcement, and child safety organizations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-950 shadow bg-gray-400"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
       <section id="features" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-             Features
+              Features
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Comprehensive Digital Protection
@@ -499,7 +866,167 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
+      <section className="py-20 bg-gray-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-4xl lg:text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Learning Through Play
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Transform digital safety education into an engaging adventure with
+              gamification, mentoring, and interactive learning.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              {
+                iconColor: "text-yellow-400",
+                icon: Trophy,
+                title: "Safety Achievements",
+                desc: "Children earn badges and trophies for making smart digital choices and completing safety lessons.",
+              },
+              {
+                iconColor: "text-purple-400",
+                icon: Star,
+                title: "Learning Streaks",
+                desc: "Build daily learning streaks by completing interactive safety modules and quizzes.",
+              },
+              {
+                iconColor: "text-green-400",
+                icon: Target,
+                title: "Safety Challenges",
+                desc: "Weekly challenges that teach children about online safety through fun, age-appropriate activities.",
+              },
+              {
+                iconColor: "text-blue-400",
+                icon: Gift,
+                title: "Reward System",
+                desc: "Earn points for safe behavior that can be redeemed for real-world rewards approved by parents.",
+              },
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="rounded-2xl bg-gray-900/60 border border-cyan-500/20 p-6 shadow-xl hover:shadow-cyan-500/40 hover:-translate-y-1 transition-all duration-300 text-center"
+              >
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500/10 mb-4 mx-auto">
+                  {/* <i
+                    className={`${card.icon} ${card.iconColor} h-8 w-8 stroke-[1.5]`}
+                  ></i> */}
+                   <card.icon className="w-8 h-8 stroke-[1.5]" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {card.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {card.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h3 className="text-2xl lg:text-3xl font-bold text-white">
+                Interactive Safety Education
+              </h3>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Our gamified learning platform makes digital safety education fun and memorable. Children progress through age-appropriate lessons, earn rewards, and build lasting safety habits through interactive experiences.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  { title: "Digital Citizenship Course", progress: "8/12 lessons", bar: "w-2/3" },
+                  { title: "Stranger Danger Online", progress: "5/8 lessons", bar: "w-3/5" },
+                  { title: "Password Security", progress: "3/5 lessons", bar: "w-3/5" },
+                ].map((item, i) => (
+                  <div key={i}>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-medium text-gray-200">{item.title}</span>
+                      <span className="text-sm text-gray-500">{item.progress}</span>
+                    </div>
+                    <div className="w-full bg-gray-800 rounded-full h-2">
+                      <div className={`bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full ${item.bar}`}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-4">
+                {[
+                  { color: "bg-yellow-500/10 text-yellow-400 border border-yellow-400/30", label: "Safety Champion", icon: "lucide-trophy" },
+                  { color: "bg-purple-500/10 text-purple-400 border border-purple-400/30", label: "7-Day Streak", icon: "lucide-star" },
+                  { color: "bg-green-500/10 text-green-400 border border-green-400/30", label: "Quiz Master", icon: "lucide-target" },
+                ].map((badge, i) => (
+                  <div
+                    key={i}
+                    className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 ${badge.color}`}
+                  >
+                    <i className={`${badge.icon} h-4 w-4`} />
+                    {badge.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gray-900/80 border border-cyan-500/20 rounded-2xl shadow-2xl p-8 text-white">
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🎮</div>
+                  <h4 className="text-xl font-bold mb-2 text-white">
+                    Safety Adventure Game
+                  </h4>
+                  <p className="text-gray-400">Level 12 - Cyber Detective</p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg p-4 text-white shadow-lg shadow-cyan-500/40">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-medium">Current Mission</span>
+                      <span className="text-sm opacity-90">2/3 Complete</span>
+                    </div>
+                    <p className="text-sm opacity-90">
+                      Identify suspicious messages in your inbox.
+                    </p>
+                    <div className="w-full bg-white/20 rounded-full h-2 mt-3">
+                      <div className="bg-white h-2 rounded-full w-2/3"></div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-3 text-center">
+                    <div className="bg-gray-800 rounded-lg p-3">
+                      <div className="text-2xl mb-1">🏆</div>
+                      <div className="text-sm font-medium text-cyan-400">15</div>
+                      <div className="text-xs text-gray-400">Badges</div>
+                    </div>
+                    <div className="bg-gray-800 rounded-lg p-3">
+                      <div className="text-2xl mb-1">⭐</div>
+                      <div className="text-sm font-medium text-cyan-400">
+                        2,450
+                      </div>
+                      <div className="text-xs text-gray-400">Points</div>
+                    </div>
+                    <div className="bg-gray-800 rounded-lg p-3">
+                      <div className="text-2xl mb-1">🎯</div>
+                      <div className="text-sm font-medium text-cyan-400">
+                        Level 12
+                      </div>
+                      <div className="text-xs text-gray-400">Rank</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     
+
 
       <section className="py-20 bg-gray-950">
         <div className="container mx-auto px-4">
@@ -523,46 +1050,61 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
-       <section id="founding-team" className="py-20 bg-gray-900">
+      <section id="founding-team" className="py-20 bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              Team
+              Founding Team
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Founding Members
+              Meet the visionary behind ZyberHero
             </h2>
           </div>
 
-            <div  className="max-w-6xl mx-auto bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-shrink-0">
+          <div className="max-w-2xl mx-auto bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
+            <div className="flex flex-col md:flex-col gap-8 items-center">
+              <div className="flex-shrink-2">
                 <Image
                   src="/Farouk_Said.jpg"
                   alt="Farouk Said"
-                  width={250}
-                  height={250}
+                  width={200}
+                  height={200}
                   className="rounded-2xl shadow-lg"
                 />
               </div>
-              <div className="text-gray-300">
+              <div className="text-gray-300 items-center flex flex-col">
                 <h3 className="text-2xl md:text-3xl font-black mb-2 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                   Farouk Said
                 </h3>
                 <p className="text-cyan-400 font-semibold mb-4">
-                  Founder & Director - Solutions Architecture
+                  Founder & CEO
                 </p>
                 <div className="space-y-4 text-sm md:text-base leading-relaxed">
-                  <p>
-                    Armed with a BSc and supported by work experience both sides of the English Channel, Farouk was snapped up by Goldman Sachs. As Chief Technical Officer, he is acknowledged for igniting IT prowess system-wide supporting more than 3,000 team members, as well as saving millions of dollars by centralising IT for the five-office network across Europe.
+                  <p className="flex flex-col text-center">
+                    Child Safety Technology Pioneer
+                    <br></br>
+                    Dedicated to digital child protection
+                    <br></br>
+                    <br></br>
+                    Visionary leader driving innovation in AI-powered child safety solutions and digital protection technologies.
                   </p>
 
-                  <p>
-                    Known for his commitment to delivery, it was ten years before Farouk joined Abu Dhabi-based The National Investor, where he ensured a solid IT foundation was in place before unleashing his own entrepreneurial ambitions.
+                  {/* <p>
+                    Known for his commitment to delivery, it was ten years
+                    before Farouk joined Abu Dhabi-based The National Investor,
+                    where he ensured a solid IT foundation was in place before
+                    unleashing his own entrepreneurial ambitions.
                   </p>
                   <p>
-                    Farouk launched Keross in the UAE in 2007 to provide future-sensing, result-driven consultancy and technology services across all markets and all sectors. Today Keross is 65+ strong. The team's multi-disciplinary innovative IT skills built and now drive Ikon by Keross – the Oracle-acclaimed robust and agile technology framework that engages a variety of lenses to present real time information.
-                  </p>
+                    Farouk launched Keross in the UAE in 2007 to provide
+                    future-sensing, result-driven consultancy and technology
+                    services across all markets and all sectors. Today Keross is
+                    65+ strong. The team's multi-disciplinary innovative IT
+                    skills built and now drive Ikon by Keross – the
+                    Oracle-acclaimed robust and agile technology framework that
+                    engages a variety of lenses to present real time
+                    information.
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -570,7 +1112,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 bg-black text-white">
+      {/* <section id="testimonials" className="py-20 bg-black text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
@@ -620,9 +1162,9 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="py-12 bg-green-50 dark:bg-green-950/20">
+      {/* <section className="py-12 bg-green-50 dark:bg-green-950/20">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 text-green-700 dark:text-green-400 mb-2">
             <Shield className="w-6 h-6" />
@@ -635,7 +1177,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
             full refund.
           </p>
         </div>
-      </section>
+      </section> */}
 
       <section id="pricing" className="py-20 bg-black">
         <div className="container mx-auto px-4">
@@ -661,11 +1203,10 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
                 viewport={{ once: true }}
               >
                 <Card
-                  className={`h-full relative bg-gray-900 border-2 ${
-                    plan.popular
-                      ? "border-cyan-500/50 shadow-2xl shadow-cyan-500/30"
-                      : "border-gray-800 hover:border-cyan-500/30"
-                  } transition-all flex flex-col`}
+                  className={`h-full relative bg-gray-900 border-2 ${plan.popular
+                    ? "border-cyan-500/50 shadow-2xl shadow-cyan-500/30"
+                    : "border-gray-800 hover:border-cyan-500/30"
+                    } transition-all flex flex-col`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-cyan-500/50">
@@ -691,15 +1232,21 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
                       <div className="flex items-center gap-2 text-sm">
                         <Users className="w-4 h-4 text-cyan-400" />
                         <span className="text-gray-300">
-                          <strong className="text-white">{plan.children}</strong>{" "}
-                          {typeof plan.children === "number" ? "child" : "children"}
+                          <strong className="text-white">
+                            {plan.children}
+                          </strong>{" "}
+                          {typeof plan.children === "number"
+                            ? "child"
+                            : "children"}
                         </span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <Zap className="w-4 h-4 text-cyan-400" />
                         <span className="text-gray-300">
                           <strong className="text-white">{plan.devices}</strong>{" "}
-                          {typeof plan.devices === "number" ? "devices" : "device support"}
+                          {typeof plan.devices === "number"
+                            ? "devices"
+                            : "device support"}
                         </span>
                       </div>
                     </div>
@@ -714,11 +1261,10 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
                       ))}
                     </ul>
                     <Button
-                      className={`w-full transition-all ${
-                        plan.popular
-                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/70"
-                          : "border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
-                      }`}
+                      className={`w-full transition-all ${plan.popular
+                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/70"
+                        : "border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
+                        }`}
                       size="lg"
                       asChild
                     >
@@ -747,7 +1293,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
             viewport={{ once: true }}
           >
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              ❓ FAQ
+              FAQ
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
               Have Questions?
@@ -855,7 +1401,7 @@ We focus on solving challenges and creating innovative, AI-powered solutions in 
             <div>
               <h3 className="text-white font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-sm">
-                <li>info@keross.com</li>
+                <li>zyberHeroSupport@keross.com</li>
                 <li>24/7 Support Available</li>
               </ul>
             </div>

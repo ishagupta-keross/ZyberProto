@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // ✅ Import router
 import { motion } from 'framer-motion';
 import { CreditCard, Lock, Check, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -13,6 +14,7 @@ import { toast } from 'sonner';
 
 export default function PaymentPage() {
   const [step, setStep] = useState<'trial' | 'payment'>('trial');
+  const router = useRouter(); // ✅ Initialize router
 
   const handleStartTrial = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +24,11 @@ export default function PaymentPage() {
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Payment processed successfully! Welcome to ZyberHero!');
+
+    // ✅ Redirect to login after short delay
+    setTimeout(() => {
+      router.push('/login');
+    }, 1500);
   };
 
   return (
