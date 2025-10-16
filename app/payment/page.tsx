@@ -36,9 +36,9 @@ export default function PaymentPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900 flex items-center justify-center p-4">
       <div className="absolute top-4 left-4">
         <Button variant="ghost" className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400" asChild>
-          <Link href="/">
+          <Link href="/pricing">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Home
+            Back to Pricing
           </Link>
         </Button>
       </div>

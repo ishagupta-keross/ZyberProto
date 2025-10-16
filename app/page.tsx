@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import PricingPlans from "@/components/shared/pricing";
 import {
   Shield,
   Search,
@@ -126,29 +127,29 @@ export default function LandingPage() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote:
-        "ZyberHero gave me peace of mind. I can finally sleep at night knowing my children are safe online.",
-      author: "Sarah M.",
-      role: "Parent of two",
-      rating: 5,
-    },
-    {
-      quote:
-        "The real-time alerts are incredible. We discovered an online predator trying to contact our daughter.",
-      author: "Patricia and James, Washington",
-      role: "Parents",
-      rating: 5,
-    },
-    {
-      quote:
-        "I recommend ZyberHero to all parents. The interface is intuitive and the protection is comprehensive.",
-      author: "Dr. Emily Chen",
-      role: "Child Psychologist",
-      rating: 5,
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     quote:
+  //       "ZyberHero gave me peace of mind. I can finally sleep at night knowing my children are safe online.",
+  //     author: "Sarah M.",
+  //     role: "Parent of two",
+  //     rating: 5,
+  //   },
+  //   {
+  //     quote:
+  //       "The real-time alerts are incredible. We discovered an online predator trying to contact our daughter.",
+  //     author: "Patricia and James, Washington",
+  //     role: "Parents",
+  //     rating: 5,
+  //   },
+  //   {
+  //     quote:
+  //       "I recommend ZyberHero to all parents. The interface is intuitive and the protection is comprehensive.",
+  //     author: "Dr. Emily Chen",
+  //     role: "Child Psychologist",
+  //     rating: 5,
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
@@ -221,7 +222,7 @@ export default function LandingPage() {
               className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
               asChild
             >
-              <Link href="/payment">Register</Link>
+              <Link href="/pricing">Register</Link>
             </Button>
           </div>
         </div>
@@ -1170,7 +1171,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
         </div>
       </section> */}
 
-      <section id="pricing" className="py-20 bg-white dark:bg-black">
+      {/* <section id="pricing" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30 ">
@@ -1221,24 +1222,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
                   <CardContent className="flex-grow flex flex-col">
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center gap-2 text-sm">
-                        {/* <Users className="w-4 h-4 text-cyan-400" />
-                        <span className="text-gray-700 dark:text-gray-300">
-                          <strong className="text-gray-900 dark:text-white">
-                            {plan.children}
-                          </strong>{" "}
-                          {typeof plan.children === "number"
-                            ? "child"
-                            : "children"}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <Zap className="w-4 h-4 text-cyan-400" />
-                        <span className="text-gray-700 dark:text-gray-300">
-                          <strong className="text-gray-900 dark:text-white">{plan.devices}</strong>{" "}
-                          {typeof plan.devices === "number"
-                            ? "devices"
-                            : "device support"}
-                        </span> */}
+                     
                       </div>
                     </div>
                     <ul className="space-y-3 mb-6 flex-grow">
@@ -1264,16 +1248,16 @@ We combine cutting-edge AI technology with child psychology expertise to create 
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </Link>
                     </Button>
-                    {/* <p className="text-xs text-center text-gray-600 dark:text-gray-400 mt-3">
-                      No credit card required for trial
-                    </p> */}
+                    
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+      <PricingPlans/>
+      
 
       <section className="py-20 bg-gray-50 dark:bg-black text-gray-900 dark:text-white">
         <div className="container mx-auto px-4 text-center">
@@ -1310,101 +1294,109 @@ We combine cutting-edge AI technology with child psychology expertise to create 
         </div>
       </section>
 
-      <footer id="contact" className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="relative w-8 h-8">
-                  <Image
-                    src="/zyber-logo.png"
-                    alt="ZyberHero"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-gray-900 dark:text-white font-bold text-lg">ZyberHero</span>
-              </div>
-              <p className="text-sm">
-                Advanced AI-powered child protection platform. Keeping families safe in the digital world through intelligent monitoring and threat detection.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Product</h3>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link
-                    href="#features"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#pricing"
-                    className="hover:text-gray-900 dark:hover:text-white transition-colors"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                {/* <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Live Demo
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Mobile App
-                  </Link>
-                </li> */}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Help Center
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-gray-900 dark:text-white font-semibold mb-4">Contact</h3>
-              <ul className="space-y-2 text-sm">
-                <li>zyberHeroSupport@keross.com</li>
-                <li> +971 56 7441943</li>
-              </ul>
-            </div>
+      <footer id="contact" className="bg-gray-900 text-gray-300 py-12">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <div className="relative w-8 h-8">
+            <Image
+              src="/zyber-logo.png"
+              alt="ZyberHero"
+              fill
+              className="object-contain"
+            />
           </div>
-
-          <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center text-sm">
-            <p>
-              &copy; 2025 ZyberHero. All rights reserved. Innocence Deserves
-              Protection.
-            </p>
-          </div>
+          <span className="text-white font-bold text-lg">ZyberHero</span>
         </div>
-      </footer>
+        <p className="text-sm text-gray-300">
+          Advanced AI-powered child protection platform. Keeping families safe in the digital world through intelligent monitoring and threat detection.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-white font-semibold mb-4">Product</h3>
+        <ul className="space-y-2 text-sm text-gray-300">
+          <li>
+            <Link
+              href="#features"
+              className="hover:text-white transition-colors"
+            >
+              Features
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#pricing"
+              className="hover:text-white transition-colors"
+            >
+              Pricing
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="text-white font-semibold mb-4">Support</h3>
+        <ul className="space-y-2 text-sm text-gray-300">
+          <li>
+            <Link href="#" className="hover:text-white transition-colors">
+              Help Center
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-white transition-colors">
+              Contact Us
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+          </li>
+          <li>
+            <Link href="#" className="hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="text-white font-semibold mb-4">Contact</h3>
+        <ul className="space-y-2 text-sm text-gray-300">
+          <li>zyberHeroSupport@keross.com</li>
+          <li>+971 56 7441943</li>
+        </ul>
+      </div>
+    </div>
+
+    <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-300">
+      <p>
+        &copy; 2025 ZyberHero. All rights reserved. Innocence Deserves Protection.
+      </p>
+    </div>
+
+    <div className="mt-8 p-4 bg-red-900/20 border border-red-800 rounded-lg">
+      <div className="text-center">
+        <h4 className="font-semibold text-red-400 mb-2">
+          Emergency Situations
+        </h4>
+        <p className="text-sm text-gray-300 mb-2">
+          If you believe a child is in immediate danger, contact local law enforcement immediately.
+        </p>
+        <div className="flex justify-center space-x-4 text-sm">
+          <span className="text-red-400">🚨 Emergency: 911</span>
+          <span className="text-red-400">📞 FBI: 1-800-CALL-FBI</span>
+          <span className="text-red-400">
+            💻 CyberTipline: www.missingkids.org
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 }
