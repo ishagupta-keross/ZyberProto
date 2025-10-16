@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export default function PaymentPage() {
   const [step, setStep] = useState<'trial' | 'payment'>('trial');
@@ -40,6 +41,9 @@ export default function PaymentPage() {
             Back to Home
           </Link>
         </Button>
+      </div>
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
       </div>
 
       <motion.div

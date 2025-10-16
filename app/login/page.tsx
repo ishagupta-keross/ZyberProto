@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { signIn, type UserRole, getDashboardPath } from '@/lib/auth';
 import usersData from '@/lib/mock/users.json';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const roles = [
   {
@@ -69,6 +70,9 @@ export default function LoginPage() {
             Back to Home
           </Link>
         </Button>
+      </div>
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
       </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export default function AboutPage() {
   const leadership = [
@@ -58,6 +59,9 @@ export default function AboutPage() {
         <Button variant="ghost" asChild>
           <Link href="/">← Back to Home</Link>
         </Button>
+      </div>
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
       </div>
 
       <div className="container mx-auto px-4 py-16 max-w-7xl">
