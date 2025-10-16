@@ -65,7 +65,7 @@ export default function PricingPlans() {
           <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30 ">
             Pricing
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Choose Your Protection Plan
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -128,7 +128,7 @@ export default function PricingPlans() {
                     size="lg"
                     asChild
                   >
-                    <Link href={plan.contactSales ? "/contact-sales" : "/payment"}>
+                    <Link href={plan.contactSales ? "/contact-sales" : `/payment?plan=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}&popular=${plan.popular || false}`}>
                       {plan.contactSales ? "Contact Sales" : "Start Free Trial"}
                       {!plan.contactSales && <ArrowRight className="w-4 h-4 ml-2" />}
                     </Link>

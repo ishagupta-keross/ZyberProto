@@ -77,55 +77,55 @@ export default function LandingPage() {
     { value: "4.9/5", label: "Parent Rating" },
   ];
 
-  const plans = [
-    {
-      name: "Family Basic",
-      description: " Perfect for families with 1-2 children",
-      price: "$9.99",
-      period: "/month",
-      features: [
-        "Monitor up to 2 devices",
-        "Real-time threat detection",
-        "Basic AI analysis",
-        "Parent dashboard",
-        "Email alerts",
-        "24/7 monitoring",
-      ],
-    },
-    {
-      name: " Family Pro",
-      description: "Comprehensive protection for larger families",
-      price: "$19.99",
-      period: "/month",
-      popular: true,
-      features: [
-        "Monitor up to 5 devices",
-        "Advanced AI threat detection",
-        "Behavioral pattern analysis",
-        "Instant push notifications",
-        "Detailed reporting",
-        "Priority support",
-        "Evidence collection",
-        "Multi-platform coverage",
-      ],
-    },
-    {
-      name: "Enterprise",
-      description: "For schools, organizations, and law enforcement",
-      price: "Custom ",
-      period: "pricing",
-      features: [
-        "Unlimited devices",
-        "Investigator portal access",
-        "Advanced case management",
-        "Chain of custody documentation",
-        "Custom integrations",
-        "Dedicated support",
-        "Training and onboarding",
-        "Compliance reporting",
-      ],
-    },
-  ];
+  // const plans = [
+  //   {
+  //     name: "Family Basic",
+  //     description: " Perfect for families with 1-2 children",
+  //     price: "$9.99",
+  //     period: "/month",
+  //     features: [
+  //       "Monitor up to 2 devices",
+  //       "Real-time threat detection",
+  //       "Basic AI analysis",
+  //       "Parent dashboard",
+  //       "Email alerts",
+  //       "24/7 monitoring",
+  //     ],
+  //   },
+  //   {
+  //     name: " Family Pro",
+  //     description: "Comprehensive protection for larger families",
+  //     price: "$19.99",
+  //     period: "/month",
+  //     popular: true,
+  //     features: [
+  //       "Monitor up to 5 devices",
+  //       "Advanced AI threat detection",
+  //       "Behavioral pattern analysis",
+  //       "Instant push notifications",
+  //       "Detailed reporting",
+  //       "Priority support",
+  //       "Evidence collection",
+  //       "Multi-platform coverage",
+  //     ],
+  //   },
+  //   {
+  //     name: "Enterprise",
+  //     description: "For schools, organizations, and law enforcement",
+  //     price: "Custom ",
+  //     period: "pricing",
+  //     features: [
+  //       "Unlimited devices",
+  //       "Investigator portal access",
+  //       "Advanced case management",
+  //       "Chain of custody documentation",
+  //       "Custom integrations",
+  //       "Dedicated support",
+  //       "Training and onboarding",
+  //       "Compliance reporting",
+  //     ],
+  //   },
+  // ];
 
   // const testimonials = [
   //   {
@@ -210,7 +210,7 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-2">
-            <ThemeToggle />
+            
             <Button
               variant="ghost"
               className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-cyan-500/10 transition-colors"
@@ -224,6 +224,7 @@ export default function LandingPage() {
             >
               <Link href="/pricing">Register</Link>
             </Button>
+            <ThemeToggle />
           </div>
         </div>
       </header>
@@ -254,7 +255,7 @@ export default function LandingPage() {
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/70 px-8 transition-all"
                   asChild
                 >
-                  <Link href="/payment">Register Now</Link>
+                  <Link href="/pricing">Register Now</Link>
                 </Button>
                 {/* <Button
                   size="lg"
@@ -349,43 +350,102 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-1 gap-8 max-w-3xl mx-auto mb-12">
-            {[
-              {
-                title: "Our Mission",
-                desc: `At ZyberHero, we believe every child deserves to explore the digital world safely. Our mission is to provide parents with the most advanced, yet easy-to-use tools to protect their children from online threats while fostering healthy digital habits.
+         <div className="grid md:grid-cols-1 gap-8 max-w-6xl mx-auto mb-12"> {/* Increased max-w to 5xl for horizontal space */}
+  {[
+    {
+      title: "Our Mission",
+      desc: `At ZyberHero, we believe every child deserves to explore the digital world safely. Our mission is to provide parents with the most advanced, yet easy-to-use tools to protect their children from online threats while fostering healthy digital habits.
 
 We combine cutting-edge AI technology with child psychology expertise to create solutions that protect without invading privacy, educate without overwhelming, and empower families to thrive in our connected world.`,
-                icon: Shield,
-              },
-//               {
-//                 title: "Our Vision",
-//                 desc: `We aim to be recognized as the preferred technology enabler, empowering businesses across industries to unlock the full potential of data orchestration.
+      icon: Shield,
+    },
+    // If you had other items, they would go here.
+  ].map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      // Styling for the entire Mission Card Container
+      className="bg-white dark:bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
+    >
+      {/* GRID LAYOUT: Mission Text (7 cols) and Stats Card (5 cols) */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        
+        {/* LEFT COLUMN: Mission Text and Icon (7 columns) */}
+       <div className="md:col-span-7 flex flex-col items-center text-center">
+  <div className="flex items-center gap-3 mb-4">
+    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+      <item.icon className="w-8 h-8 text-white" />
+    </div>
+    <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+      {item.title}
+    </h3>
+  </div>
+  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg whitespace-pre-line">
+    {item.desc}
+  </p>
+</div>
 
-// We partner with organizations in Finance, Telecom, Retail, Manufacturing, Engineering, Construction, Travel, Government, and other sectors to deliver advanced AI-driven solutions. Our solutions are dynamic, decentralized, data-focused, automated, and self-learning, designed for seamless application internally or in B2B environments, whether on cloud, on-premise, or in real-time.
 
-// We focus on solving challenges and creating innovative, AI-powered solutions in collaboration with our partners.`,
-//                 icon: Star,
-//               },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center bg-white dark:bg-gray-800 rounded-3xl p-8 border-2 border-cyan-500/20 hover:border-cyan-500/50 shadow-lg hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30">
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
+        {/* RIGHT COLUMN: Stats Card (5 columns) */}
+        <div className="md:col-span-5 flex justify-center md:justify-end">
+          
+          {/* START: Embedded Stats Card JSX */}
+          <div className="
+            w-full max-w-sm p-6 mx-auto 
+            bg-blue-50-80
+            rounded-xl 
+            text-center 
+            backdrop-blur-sm
+           
+          ">
+            
+            {/* Icon */}
+            <div className="mb-4">
+              {/* Note: Using emoji here, replace with proper icon if available */}
+              <div className="inline-block p-3 text-3xl text-blue-500 bg-white/50 rounded-full border border-blue-200 shadow-lg">
+                🛡️
+              </div>
+            </div>
+
+            {/* R&D Title */}
+            <h3 className="text-2xl font-bold text-blue-600 tracking-wider">
+              R&D
+            </h3>
+            {/* Subtitle */}
+            <p className="text-sm text-gray-600 mb-6">
+              Advanced AI Development
+            </p>
+
+            {/* --- Accuracy Section --- */}
+            <div className="space-y-1 py-3 border-t border-blue-200">
+              <p className="text-4xl font-extrabold text-green-600">
+                99.9%
+              </p>
+              <p className="text-xs text-gray-500">
+                Target Detection Accuracy
+              </p>
+            </div>
+
+            {/* --- Launch Year Section --- */}
+            <div className="space-y-1 pt-3 border-t border-blue-200">
+              <p className="text-4xl font-extrabold text-purple-600">
+                2026
+              </p>
+              <p className="text-xs text-gray-500">
+                Planned Launch Year
+              </p>
+            </div>
           </div>
+          {/* END: Embedded Stats Card JSX */}
+          
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -395,7 +455,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
     
     {/* Header section */}
     <div className="text-center space-y-4 mb-16">
-      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">Our Core Values</h2>
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Our Core Values</h2>
       <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
         The principles that guide everything we do at ZyberHero
       </p>
@@ -587,7 +647,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
 
     {/* Header section */}
     <div className="text-center space-y-4 mb-16">
-      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
         Our Roadmap
       </h2>
       <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -1042,67 +1102,103 @@ We combine cutting-edge AI technology with child psychology expertise to create 
         </div>
       </section>
 
-      <section id="founding-team" className="py-20 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+ <section id="founding-team" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
-              Founding Team
+                Founding Team
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Meet the visionary behind ZyberHero
+                Meet the visionary behind ZyberHero
             </h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
-            <div className="flex flex-col md:flex-col gap-8 items-center">
-              <div className="flex-shrink-2">
-                <Image
-                  src="/Farouk_Said.jpg"
-                  alt="Farouk Said"
-                  width={200}
-                  height={200}
-                  className="rounded-2xl shadow-lg"
-                />
-              </div>
-              <div className="text-gray-700 dark:text-gray-300 items-center flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-black mb-2 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Farouk Said
-                </h3>
-                <p className="text-cyan-400 font-semibold mb-4">
-                  Founder & CEO
-                </p>
-                <div className="space-y-4 text-sm md:text-base leading-relaxed">
-                  <p className="flex flex-col text-center">
-                    Child Safety Technology Pioneer
-                    <br></br>
-                    Dedicated to digital child protection
-                    <br></br>
-                    <br></br>
-                    Visionary leader driving innovation in AI-powered child safety solutions and digital protection technologies.
-                  </p>
-
-                  {/* <p>
-                    Known for his commitment to delivery, it was ten years
-                    before Farouk joined Abu Dhabi-based The National Investor,
-                    where he ensured a solid IT foundation was in place before
-                    unleashing his own entrepreneurial ambitions.
-                  </p>
-                  <p>
-                    Farouk launched Keross in the UAE in 2007 to provide
-                    future-sensing, result-driven consultancy and technology
-                    services across all markets and all sectors. Today Keross is
-                    65+ strong. The team's multi-disciplinary innovative IT
-                    skills built and now drive Ikon by Keross – the
-                    Oracle-acclaimed robust and agile technology framework that
-                    engages a variety of lenses to present real time
-                    information.
-                  </p> */}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+
+        {/* --- New Layout Container: Wider and using an equal two-column grid --- */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            {/* 1. Farouk Said - Founder & CEO Card (Vertical Layout) */}
+            <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
+                <div className="flex flex-col gap-6 items-center text-center">
+                    
+                    {/* Image Section */}
+                    <div className="flex-shrink-0 w-48 h-48"> {/* Slightly larger for the vertical focus */}
+                        {/* Assuming 'Image' is a component like Next.js Image */}
+                        <Image
+                            src="/Farouk_Said.jpg"
+                            alt="Farouk Said"
+                            width={192} // 192px = w-48
+                            height={192} 
+                            className="rounded-full shadow-lg object-cover w-full h-full border-4 border-cyan-400"
+                        />
+                    </div>
+                    
+                    {/* Text Content */}
+                    <div className="text-gray-700 dark:text-gray-300 flex flex-col items-center">
+                        <h3 className="text-3xl md:text-4xl font-black mb-1 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                            Farouk Said
+                        </h3>
+                        <p className="text-cyan-400 font-bold text-xl mb-4">
+                            Founder & CEO
+                        </p>
+                        
+                        {/* Description/Bio */}
+                        <div className="space-y-3 text-sm md:text-base leading-relaxed">
+                            <p className="font-semibold text-lg">
+                                Child Safety Technology Pioneer
+                            </p>
+                            <p className="italic text-cyan-200/80">
+                                Dedicated to digital child protection.
+                            </p>
+                            <p className="mt-2">
+                                Visionary leader driving innovation in AI-powered child safety solutions and digital protection technologies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* 2. Keross R&D Team Section (Styled like Farouk's Card with Image Space) */}
+            <div className="bg-gray-100 dark:bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
+                <div className="flex flex-col gap-6 items-center text-center">
+                    
+                    {/* Image Placeholder Section (Matches Farouk's image size) */}
+                    <div className="flex-shrink-0 w-48 h-48">
+                        <Image
+                            src="/keross-logo.jpg"
+                            alt="Keross Logo"
+                            width={192} // 192px = w-48
+                            height={192} 
+                            className="rounded-full shadow-lg object-cover w-full h-full border-4 border-cyan-400"
+                        />
+                    </div>
+                    
+                    {/* Text Content */}
+                    <div className="text-gray-700 dark:text-gray-300 flex flex-col items-center">
+                        <h3 className="text-3xl md:text-4xl font-black mb-1 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                            Keross R&D Team
+                        </h3>
+                        <p className="text-cyan-400 font-bold text-xl mb-4">
+                            Technology Backbone
+                        </p>
+                        
+                        {/* Description/Bio */}
+                        <div className="space-y-3 text-sm md:text-base leading-relaxed">
+                            <p className="font-semibold text-lg">
+                                Innovation & Engineering Powerhouse
+                            </p>
+                            <p className="italic text-cyan-200/80">
+                                Driving the core AI and platform development.
+                            </p>
+                            <p className="mt-2">
+                                A dedicated team of 65+ strong engineers and developers from Keross powers ZyberHero's innovative core, leveraging the robust Ikon by Keross technology framework.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
       {/* <section id="testimonials" className="py-20 bg-black text-white">
         <div className="container mx-auto px-4">
@@ -1156,106 +1252,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
         </div>
       </section> */}
 
-      {/* <section className="py-12 bg-green-50 dark:bg-green-950/20">
-        <div className="container mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 text-green-700 dark:text-green-400 mb-2">
-            <Shield className="w-6 h-6" />
-            <span className="text-xl font-bold">
-              30-Day Money-Back Guarantee
-            </span>
-          </div>
-          <p className="text-muted-foreground">
-            We're confident in our platform. Try risk-free for 30 days or get a
-            full refund.
-          </p>
-        </div>
-      </section> */}
-
-      {/* <section id="pricing" className="py-20 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30 ">
-              Pricing
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:text-white">
-              Choose Your Protection Plan
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
-              Start with a 14-day free trial. No credit card required. Cancel anytime.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card
-                  className={`h-full relative bg-gray-50 dark:bg-gray-900 border-2 ${plan.popular
-                    ? "border-cyan-500/50 shadow-2xl shadow-cyan-500/30"
-                    : "border-gray-200 dark:border-gray-800 hover:border-cyan-500/30 "
-                    } transition-all flex flex-col hover:shadow-cyan-500/40 hover:-translate-y-1 transition-all duration-300`}
-                >
-                  {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg shadow-cyan-500/50">
-                      Most Popular
-                    </div>
-                  )}
-                  <CardHeader className="text-center pb-8">
-                    <CardTitle className="text-2xl mb-2 text-gray-900 dark:text-white">
-                      {plan.name}
-                    </CardTitle>
-                    <CardDescription className="text-gray-600 dark:text-gray-400 mb-4">
-                      {plan.description}
-                    </CardDescription>
-                    <div className="mb-4">
-                      <span className="text-4xl font-black text-gray-900 dark:text-white">
-                        {plan.price}
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-400">{plan.period}</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-2 text-sm">
-                     
-                      </div>
-                    </div>
-                    <ul className="space-y-3 mb-6 flex-grow">
-                      {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-gray-700 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button
-                      className={`w-full transition-all ${plan.popular
-                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/70"
-                        : "border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
-                        }`}
-                      size="lg"
-                      asChild
-                    >
-                      <Link href="/login">
-                        Start Free Trial
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Link>
-                    </Button>
-                    
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+      
       <PricingPlans/>
       
 
@@ -1270,7 +1267,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
             <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30">
               FAQ
             </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900 dark:font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               Have Questions?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -1331,6 +1328,14 @@ We combine cutting-edge AI technology with child psychology expertise to create 
               className="hover:text-white transition-colors"
             >
               Pricing
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="#how-it-works"
+              className="hover:text-white transition-colors"
+            >
+              How It Works
             </Link>
           </li>
         </ul>

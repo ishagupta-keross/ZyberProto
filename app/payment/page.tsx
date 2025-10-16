@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation'; // ✅ Import router
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { CreditCard, Lock, Check, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
@@ -11,22 +11,70 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export default function PaymentPage() {
   const [step, setStep] = useState<'trial' | 'payment'>('trial');
-  const router = useRouter(); // ✅ Initialize router
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  
+  const planName = searchParams.get('plan') || 'Family Basic';
+  const planPrice = searchParams.get('price') || '$9.99';
+  const isPopular = searchParams.get('popular') === 'true';
+  
+  const getDeviceCount = (plan: string) => {
+    if (plan.includes('Basic')) return 'Up to 2';
+    if (plan.includes('Pro')) return 'Up to 5';
+    return 'Unlimited';
+  };
+  
+  const getFeatures = (plan: string) => {
+    if (plan.includes('Basic')) {
+      return [
+        'Monitor up to 2 devices',
+        'Real-time threat detection',
+        'Basic AI analysis',
+        'Parent dashboard',
+        'Email alerts',
+        '24/7 monitoring',
+      ];
+    }
+    if (plan.includes('Pro')) {
+      return [
+        'Monitor up to 5 devices',
+        'Advanced AI threat detection',
+        'Behavioral pattern analysis',
+        'Instant push notifications',
+        'Detailed reporting',
+        'Priority support',
+        'Evidence collection',
+        'Multi-platform coverage',
+      ];
+    }
+    return [
+      'Unlimited devices',
+      'Investigator portal access',
+      'Advanced case management',
+      'Chain of custody documentation',
+      'Custom integrations',
+      'Dedicated support',
+    ];
+  };
 
   const handleStartTrial = (e: React.FormEvent) => {
     e.preventDefault();
     setStep('payment');
   };
 
+  const handleGoogleSignUp = () => {
+    toast.success('Signing up with Google...');
+    setTimeout(() => {
+      setStep('payment');
+    }, 1000);
+  };
+
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Payment processed successfully! Welcome to ZyberHero!');
-
-    // ✅ Redirect to login after short delay
     setTimeout(() => {
       router.push('/login');
     }, 1500);
@@ -41,9 +89,6 @@ export default function PaymentPage() {
             Back to Pricing
           </Link>
         </Button>
-      </div>
-      <div className="absolute top-4 right-4">
-        <ThemeToggle />
       </div>
 
       <motion.div
@@ -69,6 +114,44 @@ export default function PaymentPage() {
                   <CardDescription>Start protecting your family today</CardDescription>
                 </CardHeader>
                 <CardContent>
+                  <Button
+                    onClick={handleGoogleSignUp}
+                    variant="outline"
+                    className="w-full mb-6 h-12 text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-900"
+                    type="button"
+                  >
+                    <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      />
+                    </svg>
+                    Sign up with Google
+                  </Button>
+
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 flex items-center">
+                      <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                      <span className="bg-background px-2 text-muted-foreground">
+                        Or continue with email
+                      </span>
+                    </div>
+                  </div>
+
                   <form onSubmit={handleStartTrial} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
@@ -99,7 +182,7 @@ export default function PaymentPage() {
                       </Label>
                     </div>
                     <Button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white" size="lg">
-                      Start 14-Day Free Trial
+                      Create Account
                     </Button>
                     <p className="text-xs text-center text-muted-foreground">
                       Your trial will automatically expire after 14 days unless you subscribe
@@ -170,17 +253,13 @@ export default function PaymentPage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold">Family Plan</span>
-                  <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">Popular</Badge>
+                  <span className="font-semibold">{planName}</span>
+                  {isPopular && <Badge className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white">Popular</Badge>}
                 </div>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Children</span>
-                    <span className="font-semibold">Up to 3</span>
-                  </div>
-                  <div className="flex justify-between">
                     <span className="text-muted-foreground">Devices</span>
-                    <span className="font-semibold">Up to 10</span>
+                    <span className="font-semibold">{getDeviceCount(planName)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Billing</span>
@@ -190,17 +269,17 @@ export default function PaymentPage() {
                 <div className="border-t pt-4">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span>$19.99</span>
+                    <span>{planPrice}</span>
                   </div>
                   {step === 'trial' && (
                     <div className="flex justify-between items-center text-green-600 mb-2">
                       <span>Trial Discount</span>
-                      <span>-$19.99</span>
+                      <span>-{planPrice}</span>
                     </div>
                   )}
                   <div className="flex justify-between items-center font-bold text-lg">
                     <span>Total Today</span>
-                    <span>{step === 'trial' ? '$0.00' : '$19.99'}</span>
+                    <span>{step === 'trial' ? '$0.00' : planPrice}</span>
                   </div>
                 </div>
               </CardContent>
@@ -210,14 +289,7 @@ export default function PaymentPage() {
               <CardContent className="p-6">
                 <h3 className="font-bold mb-4 text-white">What's Included:</h3>
                 <ul className="space-y-2">
-                  {[
-                    'Content filtering & monitoring',
-                    'Real-time location tracking',
-                    'Geofencing alerts',
-                    'Chat monitoring',
-                    'Emergency SOS',
-                    'Premium support',
-                  ].map((feature, i) => (
+                  {getFeatures(planName).map((feature, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <Check className="w-4 h-4" />
                       <span className="text-sm text-white">{feature}</span>
