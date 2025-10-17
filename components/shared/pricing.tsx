@@ -42,7 +42,7 @@ export default function PricingPlans() {
     {
       name: "Enterprise",
       description: "For schools, organizations, and law enforcement",
-      price: "Custom",
+      price: "Custom ",
       period: "pricing",
       features: [
         "Unlimited devices",
@@ -62,10 +62,10 @@ export default function PricingPlans() {
     <section id="pricing" className="py-20 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full text-sm font-semibold mb-4 border border-cyan-500/30 ">
+          <div className="inline-flex items-center mb-4 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium dark:bg-green-500/10 dark:text-green-400">
             Pricing
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-900 dark:font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl mb-4 lg:text-5xl font-bold text-gray-900 dark:text-white">
             Choose Your Protection Plan
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
@@ -128,7 +128,13 @@ export default function PricingPlans() {
                     size="lg"
                     asChild
                   >
-                    <Link href={plan.contactSales ? "/contact-sales" : `/payment?plan=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}&popular=${plan.popular || false}`}>
+                    <Link
+  href={
+    plan.contactSales
+      ? "/#founding-team"
+      : `/payment?plan=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}&popular=${plan.popular || false}`
+  }
+>
                       {plan.contactSales ? "Contact Sales" : "Start Free Trial"}
                       {!plan.contactSales && <ArrowRight className="w-4 h-4 ml-2" />}
                     </Link>
@@ -138,6 +144,21 @@ export default function PricingPlans() {
             </motion.div>
           ))}
         </div>
+         {/* Money Back Guarantee */}
+      {/* <div className="max-w-6xl mx-auto px-4 mt-16">
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-900 dark:to-gray-950 rounded-2xl p-8 md:p-12 text-center border border-gray-200 dark:border-gray-800 transition-colors duration-300">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-4xl mb-4">💰</div>
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              30-Day Money-Back Guarantee
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed">
+              We're so confident in ZyberHero's ability to protect your family that we offer a full refund
+              within 30 days if you're not completely satisfied. Your child's safety is our priority.
+            </p>
+          </div>
+        </div>
+      </div> */}
       </div>
     </section>
   );

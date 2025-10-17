@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function PaymentPage() {
   const [step, setStep] = useState<'trial' | 'payment'>('trial');
@@ -82,14 +83,23 @@ export default function PaymentPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 dark:from-gray-950 dark:via-blue-950 dark:to-gray-900 flex items-center justify-center p-4">
-      <div className="absolute top-4 left-4">
-        <Button variant="ghost" className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400" asChild>
-          <Link href="/pricing">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Pricing
-          </Link>
-        </Button>
-      </div>
+     <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+  {/* Left: Back Button */}
+  <Button
+    variant="ghost"
+    className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400"
+    asChild
+  >
+    <Link href="/pricing">
+      <ArrowLeft className="w-4 h-4 mr-2" />
+      Back to Pricing
+    </Link>
+  </Button>
+
+  {/* Right: Theme Toggle */}
+  <ThemeToggle />
+</div>
+
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -97,11 +107,11 @@ export default function PaymentPage() {
         className="w-full max-w-4xl"
       >
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl mb-4 lg:text-5xl font-bold text-gray-900 dark:text-white">
             {step === 'trial' ? 'Start Your Free Trial' : 'Complete Your Subscription'}
           </h1>
           <p className="text-muted-foreground">
-            {step === 'trial' ? '14 days free, no credit card required' : 'Secure payment powered by Stripe'}
+            {step === 'trial' ? '14 days free trial, no credit card required' : 'Secure payment powered by Stripe'}
           </p>
         </div>
 
@@ -114,7 +124,7 @@ export default function PaymentPage() {
                   <CardDescription>Start protecting your family today</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button
+                  {/* <Button
                     onClick={handleGoogleSignUp}
                     variant="outline"
                     className="w-full mb-6 h-12 text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-900"
@@ -150,7 +160,7 @@ export default function PaymentPage() {
                         Or continue with email
                       </span>
                     </div>
-                  </div>
+                  </div> */}
 
                   <form onSubmit={handleStartTrial} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">

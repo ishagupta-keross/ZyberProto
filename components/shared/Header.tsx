@@ -55,7 +55,15 @@ export function Header({ title, userName }: HeaderProps) {
             </Link>
           </Button>
 
-          <Button
+         
+          <Button 
+          className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400"
+          variant="outline" size="sm" onClick={handleLogout}>
+            <LogOut className="h-4 w-4 mr-2" />
+            Logout
+          </Button>
+
+           <Button
             className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400"
             variant="ghost"
             size="sm"
@@ -69,12 +77,6 @@ export function Header({ title, userName }: HeaderProps) {
             <span className="sr-only">Toggle theme</span>
           </Button>
 
-          <Button 
-          className="hover:bg-cyan-50 hover:text-cyan-600 dark:hover:bg-cyan-950 dark:hover:text-cyan-400"
-          variant="outline" size="sm" onClick={handleLogout}>
-            <LogOut className="h-4 w-4 mr-2" />
-            Logout
-          </Button>
         </div>
       </div>
     </header>
