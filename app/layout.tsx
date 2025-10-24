@@ -6,6 +6,11 @@ import { Toaster } from '@/components/ui/sonner';
 export const metadata: Metadata = {
   title: 'ZyberHero - Innocence Deserves Protection',
   description: 'Child safety platform protecting kids online',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

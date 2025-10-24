@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import ContactSupport from "./ContactSupport";
 
 export default function PricingPlans() {
   const plans = [
@@ -120,25 +121,34 @@ export default function PricingPlans() {
                   </ul>
 
                   {/* Button with conditional text & link */}
-                  <Button
-                    className={`w-full transition-all ${plan.popular
-                      ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/70"
-                      : "border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
-                      }`}
-                    size="lg"
-                    asChild
-                  >
-                    <Link
-  href={
-    plan.contactSales
-      ? "/#founding-team"
-      : `/payment?plan=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}&popular=${plan.popular || false}`
-  }
->
-                      {plan.contactSales ? "Contact Sales" : "Start Free Trial"}
-                      {!plan.contactSales && <ArrowRight className="w-4 h-4 ml-2" />}
-                    </Link>
-                  </Button>
+                  {plan.contactSales ? (
+                    <ContactSupport
+                      trigger={
+                        <Button
+                          className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
+                          size="lg"
+                        >
+                          Contact Sales
+                        </Button>
+                      }
+                    />
+                  ) : (
+                    <Button
+                      className={`w-full transition-all ${plan.popular
+                        ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg hover:shadow-2xl hover:shadow-cyan-500/70"
+                        : "border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
+                        }`}
+                      size="lg"
+                      asChild
+                    >
+                      <Link
+                        href={`/payment?plan=${encodeURIComponent(plan.name)}&price=${encodeURIComponent(plan.price)}&popular=${plan.popular || false}`}
+                      >
+                        Start Free Trial
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Link>
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </motion.div>

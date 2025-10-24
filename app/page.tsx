@@ -8,6 +8,10 @@ import PricingPlans from "@/components/shared/pricing";
 import CountdownTimer from "@/components/shared/CountdownTimer";
 import MentoringSection from "@/components/shared/MentoringSection";
 import GamificationSection from "@/components/shared/GamificationSection";
+import ReserveSpotForm from "@/components/shared/ReserveSpotForm";
+import EnterpriseInfo from "@/components/shared/EnterpriseInfo";
+import AccessibilityFeatures from "@/components/shared/AccessibilityFeatures";
+import ContactSupport from "@/components/shared/ContactSupport";
 
 import {
   Shield,
@@ -36,6 +40,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import PreLaunchListForm from "@/components/shared/PreLaunchListForm";
 
 export default function LandingPage() {
   const features = [
@@ -303,38 +308,67 @@ export default function LandingPage() {
 
             {/* Right Panel */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+  initial={{ opacity: 0, x: 20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  className="relative"
+>
+  <div className="bg-white/10 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl shadow-white/20 border border-white/20 dark:border-gray-800">
+    <div className="space-y-4">
+      {/* Status Cards */}
+      {[
+        { title: "Safe Browsing Active", subtitle: "All devices protected", icon: Check, color: "green" },
+        { title: "Alert Detected", subtitle: "Inappropriate content blocked", icon: AlertTriangle, color: "red" },
+        { title: "Real-Time Monitoring", subtitle: "24/7 protection active", icon: Zap, color: "cyan" },
+      ].map((item, i) => {
+        const colorMap = {
+          green: {
+            border: "border-green-500/30",
+            borderHover: "hover:border-green-500/50",
+            bg: "bg-green-500",
+            shadow: "shadow-green-500/30",
+          },
+          red: {
+            border: "border-red-500/30",
+            borderHover: "hover:border-red-500/50",
+            bg: "bg-red-500",
+            shadow: "shadow-red-500/30",
+          },
+          cyan: {
+            border: "border-cyan-500/30",
+            borderHover: "hover:border-cyan-500/50",
+            bg: "bg-cyan-500",
+            shadow: "shadow-cyan-500/30",
+          },
+        };
+
+        const c = colorMap[item.color as keyof typeof colorMap];
+
+
+        return (
+          <div
+            key={i}
+            className={`flex items-center gap-4 p-5 rounded-2xl border transition-all
+              bg-white/20 dark:bg-gray-800/50
+              ${c.border} ${c.borderHover} shadow-sm shadow-white/20`}
+          >
+            <div
+              className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg
+                ${c.bg} ${c.shadow}`}
             >
-              <div className="bg-white/10 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl shadow-white/20 border border-white/20 dark:border-gray-800">
-                <div className="space-y-4">
-                  {/* Status Cards */}
-                  {[
-                    { title: "Safe Browsing Active", subtitle: "All devices protected", icon: Check, color: "green" },
-                    { title: "Alert Detected", subtitle: "Inappropriate content blocked", icon: AlertTriangle, color: "orange" },
-                    { title: "Real-Time Monitoring", subtitle: "24/7 protection active", icon: Zap, color: "cyan" },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className={`flex items-center gap-4 p-5 rounded-2xl border transition-all
-                            bg-white/20 dark:bg-gray-800/50
-                            border-${item.color}-500/30 hover:border-${item.color}-500/50 shadow-sm shadow-white/20`}
-                    >
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shadow-lg
-                                bg-${item.color}-500 shadow-${item.color}-500/30`}>
-                        <item.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <div className="font-bold text-white dark:text-white">{item.title}</div>
-                        <div className="text-sm text-white/80 dark:text-gray-400">{item.subtitle}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+              <item.icon className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <div className="font-bold text-white dark:text-white">{item.title}</div>
+              <div className="text-sm text-white/80 dark:text-gray-400">{item.subtitle}</div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</motion.div>
+
           </div>
         </div>
       </section>
@@ -359,7 +393,7 @@ export default function LandingPage() {
           </div>
 
           {/* Countdown Timer */}
-          <div className="mb-16">
+          <div id="reserveSpot"  className="mb-16">
             <CountdownTimer />
           </div>
 
@@ -384,7 +418,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div  className="flex items-start space-x-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center">
                   <Shield className="h-6 w-6 text-green-600 dark:text-green-400" />
                 </div>
@@ -413,9 +447,13 @@ export default function LandingPage() {
                   Get notified when pre-launch access begins and secure your spot in the future of child digital safety.
                 </p>
                 <div className="space-y-4">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                    Reserve Your Spot
-                  </Button>
+                  <ReserveSpotForm 
+                    trigger={
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
+                        Reserve Your Spot
+                      </Button>
+                    }
+                  />
                   <p className="text-sm text-gray-500 dark:text-gray-500">
                     Limited early access spots available
                   </p>
@@ -441,7 +479,7 @@ export default function LandingPage() {
                 </CardDescription>
                 <div className="mt-4 text-center">
                   <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                    Learn More
+                   <Link href="/pricing">Learn More</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -461,9 +499,13 @@ export default function LandingPage() {
                   Enterprise solutions for schools, nonprofits, and institutions serving children with advanced admin controls and reporting.
                 </CardDescription>
                 <div className="mt-4 text-center">
-                  <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                    Get Enterprise Info
-                  </Button>
+                  <EnterpriseInfo 
+                    trigger={
+                      <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
+                        Get Enterprise Info
+                      </Button>
+                    }
+                  />
                 </div>
               </CardContent>
             </Card>
@@ -482,9 +524,13 @@ export default function LandingPage() {
                   Specialized accessibility features and enhanced protection for individuals with special needs, ensuring inclusive digital safety.
                 </CardDescription>
                 <div className="mt-4 text-center">
-                  <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                    Accessibility Features
-                  </Button>
+                  <AccessibilityFeatures 
+                    trigger={
+                      <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
+                        Accessibility Features
+                      </Button>
+                    }
+                  />
                 </div>
               </CardContent>
             </Card>
@@ -499,9 +545,16 @@ export default function LandingPage() {
               Join our growing community of families and organizations committed to creating a safer digital world for children.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-                Join Pre-Launch List
-              </Button>
+              
+                   
+                       <PreLaunchListForm
+                    trigger={
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
+                        Join Pre-Launch List
+                      </Button>
+                    }
+                  />
+                 
             </div>
           </div>
         </div>
@@ -988,7 +1041,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
           <div className="max-w-4xl mx-auto shadow-xl rounded-3xl">
 
             {/* 1. Farouk Said - Founder & CEO Card (Vertical Layout) */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12 border-2 border-cyan-500/20 shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-1 transition-all duration-300">
               <div className="flex flex-col gap-6 items-center text-center">
 
                 {/* Image Section */}
@@ -1136,18 +1189,26 @@ We combine cutting-edge AI technology with child psychology expertise to create 
               Check out our comprehensive FAQ page or contact our support team
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button
-                size="lg"
-                className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
-              >
-                View FAQ
-              </Button>
-              <Button
+              <Link href="/faq">
+                <Button
+                  size="lg"
+                  className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
+                >
+                  View FAQ
+                </Button>
+              </Link>
+                  <ContactSupport
+                    trigger={
+                      <Button
                 size="lg"
                 className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
               >
                 Contact Support
               </Button>
+                    }
+                  />
+               
+            
             </div>
           </motion.div>
         </div>
@@ -1206,11 +1267,11 @@ We combine cutting-edge AI technology with child psychology expertise to create 
             <div>
               <h3 className="text-white font-semibold mb-4">Support</h3>
               <ul className="space-y-2 text-sm text-gray-300">
-                <li>
+                {/* <li>
                   <Link href="#contact" className="hover:text-white transition-colors">
                     Help Center
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="#contact" className="hover:text-white transition-colors">
                     Contact Us
