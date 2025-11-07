@@ -410,7 +410,7 @@ export default function LandingPage() {
                     Pre-Launch Access
                   </h3>
                   <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold mb-2">
-                    November 15, 2025
+                    November 30, 2025
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     Be among the first to experience ZyberHero with exclusive early access, special pricing, and direct feedback opportunities.
@@ -427,7 +427,7 @@ export default function LandingPage() {
                     Official Launch
                   </h3>
                   <p className="text-lg text-green-600 dark:text-green-400 font-semibold mb-2">
-                    December 1, 2025
+                    December 15, 2025
                   </p>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     Full platform launch with complete AI protection, educational modules, and comprehensive family safety tools.
@@ -437,7 +437,7 @@ export default function LandingPage() {
             </div>
 
             {/* Right Card */}
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-800 transition-all duration-300">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border hover:shadow-cyan-500/20 border-gray-100 dark:border-gray-800 transition-all duration-300">
               <div className="text-center space-y-6">
                 <div className="text-6xl mb-4">🎯</div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -479,7 +479,7 @@ export default function LandingPage() {
                 </CardDescription>
                 <div className="mt-4 text-center">
                   <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                   <Link href="/pricing">Learn More</Link>
+                  Learn More
                   </Button>
                 </div>
               </CardContent>
@@ -499,13 +499,9 @@ export default function LandingPage() {
                   Enterprise solutions for schools, nonprofits, and institutions serving children with advanced admin controls and reporting.
                 </CardDescription>
                 <div className="mt-4 text-center">
-                  <EnterpriseInfo 
-                    trigger={
-                      <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                        Get Enterprise Info
-                      </Button>
-                    }
-                  />
+                  <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
+                    Get Enterprise Info
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -524,13 +520,9 @@ export default function LandingPage() {
                   Specialized accessibility features and enhanced protection for individuals with special needs, ensuring inclusive digital safety.
                 </CardDescription>
                 <div className="mt-4 text-center">
-                  <AccessibilityFeatures 
-                    trigger={
-                      <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
-                        Accessibility Features
-                      </Button>
-                    }
-                  />
+                  <Button variant="outline" className="w-full border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all">
+                    Accessibility Features
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -995,7 +987,7 @@ We combine cutting-edge AI technology with child psychology expertise to create 
               className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
               asChild
             >
-              <Link href="/login">Start Protecting Now</Link>
+              <Link href="/pricing">Start Protecting Now</Link>
             </Button>
           </div>
         </div>

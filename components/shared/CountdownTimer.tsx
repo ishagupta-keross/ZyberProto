@@ -17,7 +17,7 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-11-15T00:00:00').getTime();
+    const targetDate = new Date('2025-11-30T00:00:00').getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -69,7 +69,7 @@ export default function CountdownTimer() {
       
       <div className="text-center mt-6">
         <p className="text-blue-100 text-sm">
-          November 15, 2025 - Be among the first to experience ZyberHero
+          November 30, 2025 - Be among the first to experience ZyberHero
         </p>
       </div>
     </div>
