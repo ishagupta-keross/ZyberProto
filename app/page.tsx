@@ -447,13 +447,9 @@ export default function LandingPage() {
                   Get notified when pre-launch access begins and secure your spot in the future of child digital safety.
                 </p>
                 <div className="space-y-4">
-                  <ReserveSpotForm 
-                    trigger={
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                        Reserve Your Spot
-                      </Button>
-                    }
-                  />
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
+                    Reserve Your Spot
+                  </Button>
                   <p className="text-sm text-gray-500 dark:text-gray-500">
                     Limited early access spots available
                   </p>
@@ -539,13 +535,9 @@ export default function LandingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               
                    
-                       <PreLaunchListForm
-                    trigger={
-                      <Button className="bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                        Join Pre-Launch List
-                      </Button>
-                    }
-                  />
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
+                    Join Pre-Launch List
+                  </Button>
                  
             </div>
           </div>
@@ -1181,14 +1173,14 @@ We combine cutting-edge AI technology with child psychology expertise to create 
               Check out our comprehensive FAQ page or contact our support team
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/faq">
+              
                 <Button
                   size="lg"
                   className="border-2 border-cyan-500/50 bg-transparent text-cyan-400 hover:bg-cyan-500 hover:text-white hover:shadow-2xl hover:shadow-cyan-500/70 transition-all"
                 >
                   View FAQ
                 </Button>
-              </Link>
+              
                   <ContactSupport
                     trigger={
                       <Button
